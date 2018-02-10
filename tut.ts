@@ -1,7 +1,19 @@
-function greetings(Person: string){
-  return "Hello, " + Person;
+class Student   {
+    fullName: string;
+    constructor(public firstName: string, public middleInitial: string, public lastName: string) {
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
 }
-let Jane = "Jane";
 
+interface Person  {
+  firstName: string;
+  lastName: string;
+}
 
-document.body.innerHTML = greetings(Jane);
+function greetings(person: Person){
+  return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let janeAustin = new Student("Jane",  "M.", "Austin");
+
+document.body.innerHTML = greetings(janeAustin);
